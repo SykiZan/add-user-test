@@ -9,8 +9,25 @@ const UsersPage = (props) => {
 
   return (
     <div className={classes.content}>
-      <span className={classes.info}>{`User number ${params.id}`}</span>
-      <span className={classes.user}>{users[parseInt(params.id) - 1]}</span>
+      {parseInt(params.id) - 1 <= users.length &&
+        parseInt(params.id) > 0 &&
+        users && (
+          <>
+            <span className={classes.info}>{`User number ${params.id}`}</span>
+            <span className={classes.user}>
+              {users[parseInt(params.id) - 1]}
+            </span>
+          </>
+        )}
+      {users.length === 0 && (
+        <div className={classes.error}>No users in DataBase</div>
+      )}
+      {parseInt(params.id) - 1 > users.length && (
+        <div className={classes.error}>No user found</div>
+      )}
+      {parseInt(params.id) < 1 && (
+        <div className={classes.error}>No user found</div>
+      )}
     </div>
   );
 };
