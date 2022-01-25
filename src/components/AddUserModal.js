@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import classes from "./AddUserModal.module.scss";
 
 const AddUserModal = (props) => {
@@ -17,7 +20,19 @@ const AddUserModal = (props) => {
   const handleAdd = () => {
     dispatch({ type: "ADD", payload: userName });
     props.handleModal();
+    notify();
   };
+
+  const notify = () =>
+    toast.success("🦄 User added!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   return (
     <>
@@ -36,6 +51,7 @@ const AddUserModal = (props) => {
           <button className={classes["add-btn"]} onClick={handleAdd}>
             Add User
           </button>
+          <ToastContainer />
         </div>
       </div>
     </>
