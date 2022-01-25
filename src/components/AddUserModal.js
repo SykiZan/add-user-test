@@ -9,7 +9,9 @@ const AddUserModal = (props) => {
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
-    if (e.keyCode === 13) handleAdd();
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") handleAdd();
   };
 
   const handleAdd = () => {
@@ -29,6 +31,7 @@ const AddUserModal = (props) => {
             type="text"
             className={classes.input}
             onChange={handleUserName}
+            onKeyPress={handleKeyPress}
           />
           <button className={classes["add-btn"]} onClick={handleAdd}>
             Add User
