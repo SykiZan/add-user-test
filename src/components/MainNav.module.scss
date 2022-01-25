@@ -1,0 +1,22 @@
+.main-nav {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #21897e;
+}
+
+.nav-btn {
+  height: 100%;
+  width: 200px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background-color: #7ebce6;
+  transition: 0.3s;
+  &:hover {
+    background-color: #8980f5;
+    color: #fff;
+    transition: 0.3s;
+  }
+}
